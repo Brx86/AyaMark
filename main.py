@@ -9,8 +9,6 @@
 @Github  :   https://github.com/brx86/
 @Desc    :   aya's pastbin api
 """
-import os
-
 from fastapi import FastAPI, File, Header, Path, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import (
