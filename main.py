@@ -53,7 +53,7 @@ def upload(
         c.file.close()
     return {
         "code": 0,
-        "message": f"Successfully uploaded: {file_id}",
+        "message": f"上传成功！",
         "url": f"http://{Host}/f/{file_id}",
         "short": file_id,
     }
