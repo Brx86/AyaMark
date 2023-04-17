@@ -22,6 +22,7 @@ coverage
 .vscode
 .history
 files/*
+!files/main
 !.vscode/extensions.json
 .idea
 *.suo
