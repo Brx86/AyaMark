@@ -1,7 +1,7 @@
 <script setup>
 import VueLogo from "./icons/VueLogo.vue"
 import GithubLogo from "./icons/GithubLogo.vue"
-const p = defineProps(["isLoading", "postAction", "result", "renderHtml"])
+const p = defineProps(["isLoading", "isEdited", "postAction", "result", "renderHtml"])
 async function btnCopy() {
     await navigator.clipboard.writeText(p.result);
 }
@@ -20,11 +20,10 @@ async function btnCopy() {
                     </button>
                 </li>
                 <li>
-                    <input type="checkbox" role="switch" @click="renderHtml">Render
+                    <input type="checkbox" role="switch" @click="renderHtml" :checked="!isEdited">Render
                 </li>
                 <li v-show="result">
-                    <a data-tooltip="点击复制" data-placement="bottom" @click="btnCopy">{{ result
-                    }}</a>
+                    <a data-tooltip="点击复制" data-placement="bottom" @click="btnCopy">{{ result }}</a>
                 </li>
             </ul>
             <ul>
