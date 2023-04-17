@@ -1,6 +1,6 @@
 <script setup>
 import VueLogo from "./icons/VueLogo.vue"
-import GithubLogo from "./icons/GithubLogo.vue"
+import HelpLogo from "./icons/HelpLogo.vue"
 const p = defineProps(["isLoading", "isEdited", "postAction", "result", "renderHtml"])
 async function btnCopy() {
     await navigator.clipboard.writeText(p.result);
@@ -28,8 +28,8 @@ async function btnCopy() {
             </ul>
             <ul>
                 <li>
-                    <a href="https://github.com/Brx86/AyaMark" target="_blank">
-                        <GithubLogo />
+                    <a href="https://mark.aya1.pro/rdme">
+                        <HelpLogo />
                     </a>
                 </li>
             </ul>
