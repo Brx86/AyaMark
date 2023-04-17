@@ -54,7 +54,7 @@ def upload(
     return {
         "code": 0,
         "message": f"上传成功！",
-        "url": f"http://{Host}/f/{file_id}",
+        "url": f"https://{Host}/f/{file_id}",
         "short": file_id,
     }
 
