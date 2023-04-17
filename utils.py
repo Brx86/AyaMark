@@ -13,9 +13,6 @@ if not root.is_dir():
     root.mkdir()
 file_list = os.listdir(root)
 
-with open(Path_(__file__).parent / "README.md", "r") as f:
-    readme = f.read()
-
 
 def get_file_id() -> str:
     while (file_id := "".join([choice(ascii_letters) for _ in range(4)])) in file_list:
