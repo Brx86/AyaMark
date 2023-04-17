@@ -32,7 +32,7 @@ async function postAction() {
 onBeforeMount(async () => {
   if (window.location.pathname !== "/") {
     isLoading.value = true
-    const response = await fetch(`http://localhost:7777/f${window.location.pathname}`)
+    const response = await fetch(`${base_api}/f${window.location.pathname}`)
     textInput.value = await response.text()
     rHtml.value = marked.parse(textInput.value)
     isEdited.value = false
