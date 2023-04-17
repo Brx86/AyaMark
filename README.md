@@ -4,9 +4,9 @@ Github: [https://github.com/Brx86/AyaMark](https://github.com/Brx86/AyaMark)
 
 Demo: [https://mark.aya1.pro](https://mark.aya1.pro)
 
-![图片1](https://user-images.githubusercontent.com/44391900/232371246-ee06016e-6d22-4cd2-a531-5c9c473c927e.png)
+![图片1](https://user-images.githubusercontent.com/44391900/232374306-9466dca7-1378-4336-a5aa-22d8ee98f27e.png)
 
-![图片2](https://user-images.githubusercontent.com/44391900/232371094-44548ef6-b9f4-4840-976b-c9f8fd32296d.png)
+![图片2](https://user-images.githubusercontent.com/44391900/232374248-08ca962a-cb52-4934-a497-c034ec37b7e7.png)
 
 ## 使用方法：
 
