@@ -33,8 +33,9 @@ Demo: [https://mark.aya1.pro](https://mark.aya1.pro)
 ```json
 {
   "code": 0,
-  "message": "Successfully uploaded: xxxx",
-  "url": "https://mark.aya1.pro/f/xxxx",
+  "message": "上传成功！",
+  "url": "https://mark.aya1.pro/f/ZuMj",
+  "short": "ZuMj"
 }
 ```
 
