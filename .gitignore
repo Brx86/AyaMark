@@ -29,3 +29,4 @@ files/*
 *.njsproj
 *.sln
 *.sw?
+*.tar*
