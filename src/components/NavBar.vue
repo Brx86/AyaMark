@@ -28,7 +28,7 @@ async function btnCopy() {
             </ul>
             <ul>
                 <li>
-                    <a href="https://mark.aya1.pro/rdme">
+                    <a href="https://mark.aya1.pro/rdme" data-tooltip="查看帮助" data-placement="bottom">
                         <HelpLogo />
                     </a>
                 </li>
