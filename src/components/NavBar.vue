@@ -1,7 +1,10 @@
 <script setup>
 import VueLogo from "./icons/VueLogo.vue"
 import GithubLogo from "./icons/GithubLogo.vue"
-defineProps(["isLoading", "postAction", "renderHtml"])
+defineProps(["isLoading", "postAction", "result", "renderHtml"])
+async function btnCopy() {
+    await navigator.clipboard.writeText(result.value);
+}
 </script>
 
 <template>
@@ -19,10 +22,14 @@ defineProps(["isLoading", "postAction", "renderHtml"])
                 <li>
                     <input type="checkbox" role="switch" @click="renderHtml">Render
                 </li>
+                <li v-show="result">
+                    <a data-tooltip="点击复制" data-placement="bottom" @click="btnCopy">{{ result
+                    }}</a>
+                </li>
             </ul>
             <ul>
                 <li>
-                    <a href="https://github.com/Xyaya/ayaclip" target="_blank">
+                    <a href="https://github.com/Brx86/AyaMark" target="_blank">
                         <GithubLogo />
                     </a>
                 </li>

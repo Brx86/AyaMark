@@ -3,11 +3,9 @@ import { onBeforeMount, ref, watchPostEffect } from "vue"
 import { marked } from "marked"
 import hljs from "highlight.js"
 import NavBar from "./components/NavBar.vue"
-import DiaLog from "./components/DiaLog.vue"
 marked.setOptions({ highlight: code => hljs.highlightAuto(code).value });
-onBeforeMount(() => { result.value = { message: "", short: "" } })
 
-const base_api = `${window.location.href}api`,
+const base_api = `${window.location.href}f`,
   textLines = ref(5),
   textInput = ref(""),
   rHtml = ref(""),
@@ -28,15 +26,15 @@ async function postAction() {
   const form = new FormData();
   const blob = new Blob([textInput.value], { type: "text/txt" });
   form.append('c', blob);
-  const response = await fetch('http://localhost:7777/f', { method: 'POST', body: form })
-  result.value = await response.json()
+  const response = await fetch(base_api, { method: 'POST', body: form })
+  result.value = `${base_api}/${(await response.json()).short}`
   isLoading.value = false
 }
 watchPostEffect(() => { textLines.value = Math.max(textInput.value.split("\n").length + 3), 5 })
 </script>
 
 <template>
-  <NavBar :is-loading="isLoading" :post-action="postAction" :render-html="renderHtml" />
+  <NavBar :is-loading="isLoading" :post-action="postAction" :result="result" :render-html="renderHtml" />
   <main class="container">
     <article>
       <textarea v-if="isEdited" v-model="textInput" :rows="textLines" placeholder="Type Markdown here..."></textarea>
