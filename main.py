@@ -101,6 +101,16 @@ def highlight_html(
         return JSONResponse({"code": -1, "message": "此文件不存在"})
 
 
+@app.get("/favicon.ico")
+async def favicon():
+    return FileResponse("dist/favicon.ico")
+
+
+@app.get("/{file_id}")
+async def render(file_id: str = Path(min_length=4, max_length=4)):
+    return FileResponse("dist/index.html")
+
+
 @app.get("/")
 async def index():
     return FileResponse("dist/index.html")
