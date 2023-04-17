@@ -1,18 +1,19 @@
 <script setup>
-import { ref, watchPostEffect } from "vue"
+import { onBeforeMount, ref, watchPostEffect } from "vue"
 import { marked } from "marked"
 import hljs from "highlight.js"
 import NavBar from "./components/NavBar.vue"
+import DiaLog from "./components/DiaLog.vue"
 marked.setOptions({ highlight: code => hljs.highlightAuto(code).value });
+onBeforeMount(() => { result.value = { message: "", short: "" } })
 
-
-// const base_api = `${window.location.href}api`,
 const base_api = `${window.location.href}api`,
   textLines = ref(5),
   textInput = ref(""),
   rHtml = ref(""),
   isEdited = ref(true),
-  isLoading = ref(false)
+  isLoading = ref(false),
+  result = ref(null)
 
 function renderHtml() {
   if (isEdited.value) {
@@ -24,22 +25,12 @@ function renderHtml() {
 }
 async function postAction() {
   isLoading.value = true
-
   const form = new FormData();
-  form.append('c', "Hello World");
-
-  const response = await fetch('http://localhost:7777/f', {
-    method: 'POST',
-    body: form
-  })
-  const r = await response.json()
-  console.log(r)
-
-  // const api_url = `${base_api}?p=${pkg_name.value}&m=${mirror.value}`
-  // const response = await fetch(api_url)
-  // const r = await response.json()
+  const blob = new Blob([textInput.value], { type: "text/txt" });
+  form.append('c', blob);
+  const response = await fetch('http://localhost:7777/f', { method: 'POST', body: form })
+  result.value = await response.json()
   isLoading.value = false
-  // result.value = r.data
 }
 watchPostEffect(() => { textLines.value = Math.max(textInput.value.split("\n").length + 3), 5 })
 </script>
