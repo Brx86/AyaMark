@@ -1,9 +1,9 @@
 <script setup>
 import VueLogo from "./icons/VueLogo.vue"
 import GithubLogo from "./icons/GithubLogo.vue"
-defineProps(["isLoading", "postAction", "result", "renderHtml"])
+const p = defineProps(["isLoading", "postAction", "result", "renderHtml"])
 async function btnCopy() {
-    await navigator.clipboard.writeText(result.value);
+    await navigator.clipboard.writeText(p.result);
 }
 </script>
 
