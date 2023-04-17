@@ -35,7 +35,6 @@ Demo: [https://mark.aya1.pro](https://mark.aya1.pro)
   "code": 0,
   "message": "Successfully uploaded: xxxx",
   "url": "https://mark.aya1.pro/f/xxxx",
-  "gzip": false
 }
 ```
 
