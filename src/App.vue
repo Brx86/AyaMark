@@ -11,18 +11,18 @@ const base_api = `${window.location.href}api`,
   textLines = ref(5),
   textInput = ref(""),
   rHtml = ref(""),
-  btnStatus = ref("outline"),
+  isEdited = ref(true),
   isLoading = ref(false)
 
 function renderHtml() {
-  if (btnStatus.value) {
+  if (isEdited.value) {
+    isEdited.value = false
     rHtml.value = marked.parse(textInput.value)
-    btnStatus.value = ""
   } else {
-    btnStatus.value = "outline"
+    isEdited.value = true
   }
 }
-async function postMarkdown() {
+async function postAction() {
   isLoading.value = true
 
   const form = new FormData();
@@ -45,10 +45,10 @@ watchPostEffect(() => { textLines.value = Math.max(textInput.value.split("\n").l
 </script>
 
 <template>
-  <NavBar :is-loading="isLoading" :post-action="postMarkdown" :btn-status="btnStatus" :render-html="renderHtml" />
+  <NavBar :is-loading="isLoading" :post-action="postAction" :render-html="renderHtml" />
   <main class="container">
     <article>
-      <textarea v-if="btnStatus" v-model="textInput" :rows="textLines" placeholder="Type Markdown here..."></textarea>
+      <textarea v-if="isEdited" v-model="textInput" :rows="textLines" placeholder="Type Markdown here..."></textarea>
       <div v-else v-html="rHtml"></div>
     </article>
   </main>
