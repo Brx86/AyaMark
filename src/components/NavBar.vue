@@ -1,7 +1,7 @@
 <script setup>
 import VueLogo from "./icons/VueLogo.vue"
 import GithubLogo from "./icons/GithubLogo.vue"
-defineProps(["isLoading", "postAction", "btnStatus", "renderHtml"])
+defineProps(["isLoading", "postAction", "renderHtml"])
 </script>
 
 <template>
@@ -9,12 +9,15 @@ defineProps(["isLoading", "postAction", "btnStatus", "renderHtml"])
         <nav class="container">
             <ul>
                 <li>
-                    <button class="outline" :aria-busy="isLoading" @click="">
+                    <button v-if="isLoading" aria-busy="true">
                         AyaMark
+                    </button>
+                    <button v-else class="outline" @click="postAction">
+                        <VueLogo /> AyaMark
                     </button>
                 </li>
                 <li>
-                    <button :class="btnStatus" @click="renderHtml">Render</button>
+                    <input type="checkbox" role="switch" @click="renderHtml">Render
                 </li>
             </ul>
             <ul>
