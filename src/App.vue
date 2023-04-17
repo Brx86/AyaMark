@@ -4,7 +4,7 @@ import { marked } from "marked"
 import hljs from "highlight.js"
 import NavBar from "./components/NavBar.vue"
 marked.setOptions({ highlight: code => hljs.highlightAuto(code).value });
-const base_api = `https://${window.location.hostname}`,
+const base_api = `//${window.location.hostname}:${window.location.port}`,
   textLines = ref(5),
   textInput = ref(""),
   rHtml = ref(""),

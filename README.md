@@ -74,7 +74,3 @@ clip2(){curl -sF "c=@-" "https://mark.aya1.pro/f"|jq -r ".url"}
 fcitx5-diagnose | clip2
 clip2 < /etc/pacman.conf
 ```
-
-## 注意事项：
-
-本项目托管于 [render](https://render.com/) ，剪贴板只能临时存放，不定期删除
